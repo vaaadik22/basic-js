@@ -14,10 +14,10 @@ const { NotImplementedError } = require('../extensions/index.js');
 function getCommonCharacterCount(/* s1, s2 */) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  let masS1 = s1.split('');
-  let masS2 = s2.split('');
-  return masS1.reduce((sum, el) => {
-    let i = masS2.indexOf(el);
+  let s1 = s1.split('');
+  let s2 = s2.split('');
+  return s1.reduce((sum, el) => {
+    let i = s2.indexOf(el);
     if (i >= 0) {
       masS2.splice(i, 1);
       return ++sum;
