@@ -21,12 +21,38 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 class VigenereCipheringMachine {
   encrypt() {
-    throw new NotImplementedError('Not implemented');
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
+    try {
+      if (typeof message != 'string' || typeof key != 'string') throw new Error(`Incorrect arguments!`);
+      let masKey = key.split('');
+      var k = 0;
+      let arrStroka = message.split('').map((el, i) => {
+        let resp = this.next(el, masKey[k % masKey.length])
+        k += resp[1]; 
+        return resp[0];
+      })
+      return this.mashine ? arrStroka.join('') : arrStroka.reverse().join('');
+    } catch (e) {
+      throw new Error(`Incorrect arguments!`);
+    }
   }
   decrypt() {
-    throw new NotImplementedError('Not implemented');
+    //throw new NotImplementedError('Not implemented');
     // remove line with error and write your code here
+    try {
+      if (typeof message != 'string' || typeof key != 'string') throw new Error(`Incorrect arguments!`);
+      let masKey = key.split('');
+      var k = 0;
+      let arrStroka = message.split('').map((el, i) => {
+        let resp = this.last(el, masKey[k % masKey.length])
+        k += resp[1]; 
+        return resp[0];
+      })
+      return this.mashine ? arrStroka.join('') : arrStroka.reverse().join('');
+    } catch (e) {
+      throw new Error(`Incorrect arguments!`);
+    }
   }
 }
 
