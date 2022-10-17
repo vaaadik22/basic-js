@@ -13,30 +13,30 @@ const { NotImplementedError } = require('../extensions/index.js');
 function encodeLine(str) {
   //throw new NotImplementedError('Not implemented');
   // remove line with error and write your code here
-  let str = '';
-  let subStr = '';
+  let stroka = '';
+  let subStroka = '';
   str.split('').forEach((el, i) => {
-    if (subStr == '') {
-      subStr = el;
-    } else if (el == subStr[0]) {
-      subStr += el;
+    if (subStroka == '') {
+      subStroka = el;
+    } else if (el == subStroka[0]) {
+      subStroka += el;
     } else {
-      if (subStr.length == 1) {
-        str += subStr;
+      if (subStroka.length == 1) {
+        stroka += subStroka;
       } else {
-        str += subStr.length + subStr[0];
+        stroka += subStroka.length + subStroka[0];
       }
-      subStr = el;
+      subStroka = el;
     }
     if (i == str.length - 1) {
-      if (subStr.length == 1) {
-        str += subStr;
+      if (subStroka.length == 1) {
+        stroka += subStroka;
       } else {
-        str += subStr.length + subStr[0];
+        stroka += subStroka.length + subStroka[0];
       }
     }
   });
-  return str;
+  return stroka;
 }
 
 module.exports = {
